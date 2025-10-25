@@ -14,12 +14,12 @@ def test_navigate_to_app(page: Page):
     main = MainPage(page)
     main.goto("/")
 
-    # The index.html sets the title to "TestApp - Frontend"
-    expect(page).to_have_title("TestApp - Frontend")
+    # The index.html sets the title to the app name we updated
+    expect(page).to_have_title("Sreenivas Lakavath Testing world")
 
     # Use the NavBar component helper
     brand = main.nav.brand_text()
-    assert brand == "TestApp"
+    assert brand == "Sreenivas Lakavath Testing world"
 
 
 def test_login_form_submission_shows_alert(page: Page):
@@ -32,17 +32,12 @@ def test_login_form_submission_shows_alert(page: Page):
     main = MainPage(page)
     main.goto("/")
 
-    seen = {"msg": None}
-
-    def on_dialog(dialog):
-        # Save and accept the alert so the test can continue
-        seen["msg"] = dialog.message
-        dialog.accept()
-
-    page.once("dialog", on_dialog)
-
     # Use the POM method which fills and submits the form inside the web component.
     main.login.fill_and_submit("alice", "password123")
 
-    # The dialog handler should have captured the alert message
-    assert seen["msg"] is not None and "Logged in as" in seen["msg"]
+    # Wait for the alert dialog to appear and capture its message
+    dialog = page.wait_for_event("dialog", timeout=5000)
+    msg = dialog.message
+    dialog.accept()
+
+    assert msg is not None and "Logged in as" in msg

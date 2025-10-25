@@ -34,11 +34,19 @@ class LoginFormComponent:
 
     def fill_and_submit(self, username: str, password: str) -> None:
         """Fill username/password and submit the form inside the component."""
+        # Playwright's eval_on_selector accepts a single argument after the expression
+        # so we pass an object with user/pass fields.
         self.page.eval_on_selector(
             "login-form",
-            "(el, user, pass) => { const form = el.shadowRoot.querySelector('form'); const u = el.shadowRoot.querySelector('#login-username') || el.shadowRoot.querySelector('input[name=\"username\"]'); const p = el.shadowRoot.querySelector('#login-password') || el.shadowRoot.querySelector('input[name=\"password\"]'); if(u) u.value = user; if(p) p.value = pass; form.requestSubmit(); }",
-            username,
-            password,
+            '''(el, data) => {
+                const form = el.shadowRoot.querySelector('form');
+                const u = el.shadowRoot.querySelector('#login-username') || el.shadowRoot.querySelector("input[name='username']");
+                const p = el.shadowRoot.querySelector('#login-password') || el.shadowRoot.querySelector("input[name='password']");
+                if (u) u.value = data.user;
+                if (p) p.value = data.pass;
+                form.requestSubmit();
+            }''',
+            {"user": username, "pass": password},
         )
 
 
