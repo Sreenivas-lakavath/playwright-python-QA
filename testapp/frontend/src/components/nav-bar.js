@@ -10,11 +10,12 @@ class NavBar extends LitElement {
 
   render() {
     return html`
-      <nav>
-        <div class="brand">TestApp</div>
+      <nav id="main-nav" data-testid="nav-bar">
+        <div class="brand" id="nav-brand" data-testid="nav-brand">Sreenivas Lakavath Testing world</div>
         <div class="actions">
-          <button @click=${() => window.scrollTo(0,0)}>Home</button>
-          <button @click=${() => alert('Open Storybook to inspect components')}>Storybook</button>
+          <button id="nav-home" data-testid="nav-home" @click=${() => window.scrollTo(0,0)}>Home</button>
+          <button id="nav-storybook" data-testid="nav-storybook" @click=${() => alert('Open Storybook to inspect components')}>Storybook</button>
+          <button id="nav-help" data-testid="nav-help" @click=${() => alert('Help clicked')}>Help</button>
         </div>
       </nav>
     `;

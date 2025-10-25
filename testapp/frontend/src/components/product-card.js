@@ -19,10 +19,13 @@ class ProductCard extends LitElement {
     let d = this.data;
     try { if (typeof d === 'string') d = JSON.parse(d); } catch (e) {}
     return html`
-      <div class="card">
-        <div class="title">${d.title || 'Untitled'}</div>
-        <div class="price">$${d.price || '0.00'}</div>
-        <div><button @click=${() => alert('Add to cart: ' + (d.title || 'item'))}>Add</button></div>
+      <div class="card" data-testid="product-card-${d.id}">
+        <div class="title" data-testid="product-title-${d.id}">${d.title || 'Untitled'}</div>
+        <div class="price" data-testid="product-price-${d.id}">$${d.price || '0.00'}</div>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button id="add-${d.id}" name="action" value="add" data-testid="product-add-${d.id}" @click=${() => alert('Add to cart: ' + (d.title || 'item'))}>Add</button>
+          <button id="details-${d.id}" data-testid="product-details-${d.id}" @click=${() => alert('Details: ' + (d.title || 'item'))}>Details</button>
+        </div>
       </div>
     `;
   }

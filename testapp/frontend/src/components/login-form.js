@@ -9,10 +9,14 @@ class LoginForm extends LitElement {
 
   render() {
     return html`
-      <form @submit=${this._onSubmit}>
-        <input name="username" placeholder="username" />
-        <input name="password" type="password" placeholder="password" />
-        <button type="submit">Login</button>
+      <form id="login-form" @submit=${this._onSubmit}>
+        <input id="login-username" name="username" placeholder="Enter username" data-testid="login-username" />
+        <input id="login-password" name="password" type="password" placeholder="Enter password" data-testid="login-password" />
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button id="login-submit" type="submit" name="action" value="login" data-testid="login-submit">Login</button>
+          <button id="login-register" type="button" name="action" value="register" data-testid="login-register">Register</button>
+          <button id="login-forgot" type="button" name="action" value="forgot" data-testid="login-forgot">Forgot</button>
+        </div>
       </form>
     `;
   }
