@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "alice",
+      "name": "Alice Example",
+      "email": "alice@example.com"
+    },
+    {
+      "id": 2,
+      "username": "bob",
+      "name": "Bob Example",
+      "email": "bob@example.com"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "Fancy Widget",
+      "price": 19.99
+    },
+    {
+      "id": 2,
+      "title": "Gadget Pro",
+      "price": 49.5
+    }
+  ],
+  "sessions": []
+}

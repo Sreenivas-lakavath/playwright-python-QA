@@ -1,0 +1,48 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+
+# Vite build output
+dist/
+build/
+
+# Storybook build
+storybook-static/
+
+# macOS
+.DS_Store
+
+# Editor directories
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.pytest_cache/
+
+# Logs
+*.log
+
+# runtime logs and pid files for start-all
+/logs/
+/.pids/
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# Lowdb runtime DB (ignore runtime database but keep an example checked in)
+/testapp/backend/db.json

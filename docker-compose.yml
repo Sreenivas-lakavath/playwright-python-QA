@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  storybook:
+    image: node:20
+    working_dir: /workspace
+    ports:
+      - "6006:6006"
+    volumes:
+      - ./testapp/frontend:/workspace
+    command: sh -c "npm install --legacy-peer-deps && npm run storybook"
+    environment:
+      - CI=false
+    restart: unless-stopped
+  selenium:
+    build:
+      context: ./testapp/selenium
+    image: testapp-selenium-standalone:latest
+    ports:
+      - "4444:4444"
+    volumes:
+      - ./testapp:/workspace
+    environment:
+      - SE_NODE_SESSION_TIMEOUT=1800
+    restart: unless-stopped

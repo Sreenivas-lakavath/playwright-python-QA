@@ -1,0 +1,10 @@
+{
+  "name": "playwright-python-qa-root",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start-all": "bash ./start-all.sh",
+    "stop-all": "bash ./stop-all.sh",
+    "storybook:docker": "docker compose up storybook"
+  }
+}
