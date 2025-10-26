@@ -46,3 +46,5 @@ venv.bak/
 
 # Lowdb runtime DB (ignore runtime database but keep an example checked in)
 /testapp/backend/db.json
+
+/allure-results/
