@@ -22,3 +22,18 @@ class BasePage:
 
     def reload(self) -> None:
         self.page.reload()
+
+    def wait(self, milliseconds: int) -> None:
+        """Pause the current page for the given number of milliseconds.
+
+        This wraps Playwright's `page.wait_for_timeout` and is useful in tests
+        that call the POM's `wait` method (for short, deterministic waits).
+        """
+        # Keep the API names simple: tests call main.wait(5_000)
+        self.page.wait_for_timeout(milliseconds)
+    def title(self) -> Optional[str]:
+        """Return the current page title, or None if not available."""
+        try:
+            return self.page.title()
+        except Exception:
+            return None

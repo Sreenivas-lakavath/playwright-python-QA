@@ -63,6 +63,13 @@ main{padding:24px;max-width:100%;margin:0;width:100%;padding-top:84px}
 
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
 
+/* small cards grid for featured */
+.cards{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+
+/* product details modal */
+#product-details-modal{position:fixed;right:24px;top:84px;z-index:2000;max-width:320px;padding:12px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));box-shadow:0 8px 40px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.02)}
+
+
 /* product-card host look - the component renders inside its shadow but we style the host */
 product-card{display:block}
 product-card{padding:8px;border-radius:10px;background:var(--glass);border:1px solid rgba(255,255,255,0.02)}

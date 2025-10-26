@@ -16,6 +16,7 @@ def test_navigate_to_app(page: Page):
 
     # The index.html sets the title to the app name we updated
     expect(page).to_have_title("Sreenivas Lakavath Testing world")
+    main.wait(5_000)
 
     # Use the NavBar component helper
     brand = main.nav.brand_text()

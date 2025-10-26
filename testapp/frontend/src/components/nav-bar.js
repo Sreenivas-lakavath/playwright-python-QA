@@ -16,6 +16,8 @@ class NavBar extends LitElement {
           <button id="nav-home" data-testid="nav-home" @click=${() => window.scrollTo(0,0)}>Home</button>
           <button id="nav-storybook" data-testid="nav-storybook" @click=${() => alert('Open Storybook to inspect components')}>Storybook</button>
           <button id="nav-help" data-testid="nav-help" @click=${() => alert('Help clicked')}>Help</button>
+          <!-- About me: opens GitHub profile in a new tab. Update URL if you want a different profile -->
+          <button id="nav-about" data-testid="nav-about" @click=${() => window.open('https://github.com/Sreenivas-lakavath', '_blank', 'noopener')}>About</button>
         </div>
       </nav>
     `;
